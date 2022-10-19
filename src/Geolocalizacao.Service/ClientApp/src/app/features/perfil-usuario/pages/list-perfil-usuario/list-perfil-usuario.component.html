@@ -1,0 +1,63 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Listar perfil de usuário</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Listar perfil de usuário</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <app-alert></app-alert>
+        <!-- Default box -->
+        <div class="card card-outline card-info">
+          <div class="card-header">
+            <app-botoes-grid action="PerfilUsuario" [selectedId]="selecao?.id" (deleteEvent)="confirmDelete()"></app-botoes-grid>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th style="width: 20px;"> # </th>
+                  <th> Nome </th>
+                  <th> Administrador </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr [ngClass]="{'table-active': selecao?.id == perfil.id }"
+                    (click)="selectRow(perfil)"
+                    *ngFor="let perfil of perfisUsuario | paginate: { itemsPerPage: qtdPorPagina, currentPage: pag };let i = index">
+                  <td>{{i + 1}}</td>
+                  <td> {{perfil.nome}} </td>
+                  <td width="50"> {{perfil.isAdmin === true ? 'SIM' : 'NÃO' }}</td>
+                </tr>
+              </tbody>
+
+            </table>
+            <div class="text-right">
+              <pagination-controls (pageChange)="pag = $event"
+                                   previousLabel="Anterior"
+                                   nextLabel="Próximo" *ngIf="perfisUsuario?.length > 0"></pagination-controls>
+            </div>
+
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </div>
+</section>

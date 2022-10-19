@@ -1,0 +1,248 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="../../">Home</a></li>
+            <li class="breadcrumb-item active">Meus dados</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <section class="content">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <app-alert></app-alert>
+          <!-- Default box -->
+          <div class="card card-outline card-info">
+            <div class="card-header">
+              <h2>Editar usuário</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
+                      <div class="nav flex-column nav-pills tab-user" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active show" id="v-pills-home-tab" data-toggle="pill" href="#tabDados" role="tab" aria-controls="v-pills-home" aria-selected="false">Geral</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#tabSeguranca" role="tab" aria-controls="v-pills-profile" aria-selected="true">Segurança e login</a>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-9">
+                      <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade active show" id="tabDados" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                          <div class="form-group row col-12 d-flex justify-content-center text-center">
+                            <div class="col-12 col-sm-6">
+                              <input type="file" #inputImage style="display: none;" accept="image/*" />
+                              <img class="user-image scaledImage" placement="bottom" ngbTooltip="Clique para alterar a foto" src="{{ usuario?.imagem ? usuario.imagem.urlPreview : '/assets/images/user-default.jpg' }}" alt="">
+                              <div>
+                                <span class="d-flex justify-content-center text-center">
+                                  <b>{{usuario?.nome}}</b>
+                                </span>
+                                <span class="d-flex justify-content-center text-center">
+                                  {{usuario?.email}}
+                                </span>
+                              </div>
+                            </div>
+
+                          </div>
+                          <app-section class="section text-info" [text]="'Dados da conta'"></app-section>
+                          <div class="col-12 mt-3">
+                            <form [formGroup]="formAlteracaoDados" (ngSubmit)="submitFormAlteracaoDados()">
+                              <div class="form-group row col-12">
+
+                                <label for="inputName" class="col-12 col-lg-3 control-label">Nome</label>
+
+                                <div class="col-12 col-sm-12 col-lg-9">
+                                  <input class="form-control" placeholder="Nome" value="{{usuario?.nome}}" [formControl]="formAlteracaoDadosConntrols.nome" [class.is-invalid]="formAlteracaoDadosSubmitted && formAlteracaoDadosConntrols.nome.hasError('required')">
+                                  <span *ngIf="formAlteracaoDadosSubmitted && formAlteracaoDadosConntrols.nome.hasError('required')" class="error invalid-feedback">O nome é <strong>obrigatório</strong></span>
+                                </div>
+                              </div>
+                              <div class="form-group row col-12">
+                                <label for="inputName" class="col-12 col-lg-3 control-label">Email</label>
+
+                                <div class="col-12 col-sm-12 col-lg-9">
+                                  <input class="form-control" disabled placeholder="Email" value="{{usuario?.email}}">
+                                </div>
+                              </div>
+                              <div class="form-group row col-12">
+                                <div class="col-12 text-right">
+                                  <button type="submit" class="btn btn-primary" *ngIf="!loading" [disabled]="formAlteracaoDadosConntrols.nome.value === usuario?.nome">
+                                    <span class="far fa-save"></span> Gravar
+                                  </button>
+
+                                  <button typeof="buton" class="btn btn-primary" type="button" disabled *ngIf="loading">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Aguarde...
+                                  </button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="tabSeguranca" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                            <div class="col-12">
+                                <div class="form-group-row">
+                                    <div class="card">
+                                        <div class="card-header" style="background-color: #f5f6f7;">
+                                          <h3 class="card-title">Login</h3>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <div class="card-body">
+                                          <div class="" *ngIf="usuario?.senhaCadastrada">
+                                            <div class="col-12 mb-3">
+                                              Alterar senha
+                                              <div class="float-right">
+                                                <button class="btn btn-default btn-sm" style="margin-top: -4px" type="button" data-toggle="collapse" data-target="#collapseAlterarSenha" aria-expanded="false" aria-controls="collapseExample">
+                                                  Editar
+                                                </button>
+                                              </div>
+                                            </div>
+
+                                            <div class="collapse" id="collapseAlterarSenha">
+
+                                              <div class="mt-2 border-top">
+                                                <form class="mt-2" [formGroup]="formAlteracaoSenha" (ngSubmit)="submitFormAlteracaoSenha()">
+                                                  <div class="form-group row col-12">
+                                                    <label class="col-12 col-sm-12 col-lg-3 control-label">Senha atual</label>
+
+                                                    <div class="col-12 col-lg-9">
+                                                      <input type="password" class="form-control" placeholder="Senha atual" value="" [formControl]="formAlteracaoSenhaConntrols.senhaAtual" [class.is-invalid]="formAlteracaoSenhaSubmitted && formAlteracaoSenhaConntrols.senhaAtual.hasError('required')">
+                                                      <span *ngIf="formAlteracaoSenhaSubmitted && formAlteracaoSenhaConntrols.senhaAtual.hasError('required')" class="error invalid-feedback">
+                                                        A senha atual é <strong>obrigatória</strong>
+                                                      </span>
+                                                    </div>
+                                                  </div>
+                                                  <div class="form-group row col-12">
+                                                    <label class="col-12 col-lg-3 control-label">Nova senha</label>
+
+                                                    <div class="col-12 col-lg-9">
+                                                      <input type="password" class="form-control" placeholder="Nova senha" value="" [formControl]="formAlteracaoSenhaConntrols.novaSenha" [class.is-invalid]="formAlteracaoSenhaSubmitted && (formAlteracaoSenhaConntrols.novaSenha.hasError('required') || formAlteracaoSenhaConntrols.novaSenha.hasError('minlength'))">
+                                                      <span *ngIf="formAlteracaoSenhaSubmitted && formAlteracaoSenhaConntrols.novaSenha.hasError('required')" class="error invalid-feedback">
+                                                        A nova senha é <strong>obrigatória</strong>
+                                                      </span>
+                                                      <span *ngIf="formAlteracaoSenhaSubmitted && formAlteracaoSenhaConntrols.novaSenha.hasError('minlength')" class="error invalid-feedback">
+                                                        A nova senha é precisa conter pelo menos <strong>6 caracteres</strong>
+                                                      </span>
+                                                    </div>
+
+                                                  </div>
+                                                  <div class="form-group row col-12">
+                                                    <label class="col-12 col-lg-3 control-label">Confirme a senha</label>
+
+                                                    <div class="col-12 col-lg-9">
+                                                      <input type="password" class="form-control" placeholder="Confirme a senha" value="" [formControl]="formAlteracaoSenhaConntrols.confirmacaoSenha" [class.is-invalid]="formAlteracaoSenhaSubmitted && (formAlteracaoSenhaConntrols.confirmacaoSenha.hasError('required') || formAlteracaoSenhaConntrols.confirmacaoSenha.hasError('confirmacaoSenha'))">
+
+                                                      <span *ngIf="formAlteracaoSenhaSubmitted && formAlteracaoSenhaConntrols.confirmacaoSenha.hasError('required')" class="error invalid-feedback">
+                                                        A confirmação de senha é <strong>obrigatória</strong>
+                                                      </span>
+                                                      <span *ngIf="formAlteracaoSenhaSubmitted && formAlteracaoSenhaConntrols.confirmacaoSenha.hasError('confirmacaoSenha')" class="error invalid-feedback">
+                                                        Os campos de senha não são iguais
+                                                      </span>
+                                                    </div>
+
+                                                  </div>
+                                                  <div class="form-group row col-12">
+                                                    <div class="col-12 text-right">
+                                                      <button type="submit" class="btn btn-primary" *ngIf="!loading" [disabled]="formAlteracaoSenhaConntrols.senhaAtual.value === '' || formAlteracaoSenhaConntrols.novaSenha.value === '' || formAlteracaoSenhaConntrols.confirmacaoSenha.value === ''">
+                                                        <span class="far fa-save"></span> Gravar
+                                                      </button>
+
+                                                      <button typeof="buton" class="btn btn-primary" type="button" disabled *ngIf="loading">
+                                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                        Aguarde...
+                                                      </button>
+                                                    </div>
+                                                  </div>
+                                                </form>
+
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                            <div class="" *ngIf="!usuario?.senhaCadastrada">
+                                                <div class="col-12 mt-2 mb-2">
+                                                    Cadastrar senha
+                                                    <div class="float-right">
+                                                        <button class="btn btn-default btn-sm" style="margin-top: -4px" type="button" data-toggle="collapse" data-target="#collapseCadastrarSenha" aria-expanded="false" aria-controls="collapseExample">
+                                                            Editar
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                  <div class="collapse" id="collapseCadastrarSenha">
+                                                    <div class="mt-2 border-top">
+                                                        <form class="mt-2" [formGroup]="formCadastroSenha" (ngSubmit)="submitFormCadastroSenha()">
+                                                            <div class="form-group row col-12">
+                                                                <label class="col-12 col-lg-3 control-label">Senha</label>
+
+                                                                <div class="col-12 col-lg-9">
+                                                                  <input type="password" class="form-control" placeholder="Senha" value="" [formControl]="formCadastroSenhaConntrols.novaSenha" [class.is-invalid]="formAlteracaoSenhaSubmitted && (formCadastroSenhaConntrols.novaSenha.hasError('required') || formCadastroSenhaConntrols.novaSenha.hasError('minlength'))">
+                                                                  <span *ngIf="formCadastroSenhaSubmitted && formCadastroSenhaConntrols.novaSenha.hasError('required')" class="error invalid-feedback">
+                                                                    A senha é <strong>obrigatória</strong>
+                                                                  </span>
+                                                                  <span *ngIf="formCadastroSenhaSubmitted && formCadastroSenhaConntrols.novaSenha.hasError('minlength')" class="error invalid-feedback">
+                                                                    A senha é precisa conter pelo menos <strong>6 caracteres</strong>
+                                                                  </span>
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-group row col-12">
+                                                                <label class="col-12 col-lg-3 control-label">Confirme a senha</label>
+
+                                                                <div class="col-12 col-lg-9">
+                                                                  <input type="password" class="form-control" placeholder="Confirme a senha" value="" [formControl]="formCadastroSenhaConntrols.confirmacaoSenha" [class.is-invalid]="formAlteracaoSenhaSubmitted && (formCadastroSenhaConntrols.confirmacaoSenha.hasError('required') || formCadastroSenhaConntrols.confirmacaoSenha.hasError('confirmacaoSenha'))">
+    
+                                                                  <span *ngIf="formCadastroSenhaSubmitted && formCadastroSenhaConntrols.confirmacaoSenha.hasError('required')" class="error invalid-feedback">
+                                                                    A confirmação de senha é <strong>obrigatória</strong>
+                                                                  </span>
+                                                                  <span *ngIf="formCadastroSenhaSubmitted && formCadastroSenhaConntrols.confirmacaoSenha.hasError('confirmacaoSenha')" class="error invalid-feedback">
+                                                                    Os campos de senha não são iguais
+                                                                  </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row col-12">
+                                                              <div class="col-12 text-right">
+                         
+                                                                <button type="submit" class="btn btn-primary" *ngIf="!loading" [disabled]="formCadastroSenhaConntrols.novaSenha.value === '' || formCadastroSenhaConntrols.confirmacaoSenha.value === ''">
+                                                                  <span class="far fa-save"></span> Gravar
+                                                                </button>
+
+                                                                <button typeof="buton" class="btn btn-primary" type="button" disabled *ngIf="loading">
+                                                                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                                  Aguarde...
+                                                                </button>
+                                                              </div>
+                                                            </div>
+                                                        </form>
+
+                                                    </div>
+                                                  </div>
+
+                                            </div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+
+  <!-- /.content -->

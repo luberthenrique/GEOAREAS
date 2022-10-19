@@ -1,0 +1,23 @@
+::ng-deep.section span {
+  font-weight: 600;
+  font-size: 1rem;
+}
+::ng-deep.section {
+  width: 100%;
+  margin-bottom: 15px;
+  margin-left: .6rem;
+}
+::ng-deep.card-info {
+  border-top: 3px solid #00c0ef !important;
+}
+::ng-deep.card .card-header {
+  background-color: #fff;
+}
+::ng-deep.btn-default {
+  background-color: #f4f4f4;
+  color: #444;
+  border-color: #ddd;
+}
+::ng-deep button {
+  margin: 0px 8px 0px 0 !important;
+}

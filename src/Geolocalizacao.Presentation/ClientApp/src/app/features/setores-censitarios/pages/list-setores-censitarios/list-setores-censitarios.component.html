@@ -1,0 +1,84 @@
+<section class="content-header">
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Listar arquivos de setores censitários</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Listar arquivos de setores censitários</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <app-alert></app-alert>
+        <div class="card card-outline card-info">
+          <div class="card-header">
+            <button type="button" (click)="carregarArquivo()" class="btn btn-default"><i class="fas fa-plus"></i> Carregar arquivo</button>
+          </div>
+
+          <div class="card-body" *ngIf="setores?.length > 0">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th style="width: 20px;"> # </th>
+                  <th> Nome </th>
+                  <th> Arquivo </th>
+                  <th> Data </th>
+                  <th width="70">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr [ngClass]="{'table-active': selecao?.id == item.id }"
+                    (click)="selectRow(item)"
+                    *ngFor="let item of setores | paginate: { itemsPerPage: qtdPorPagina, currentPage: pag };let i = index">
+                  <td>{{i + 1}}</td>
+                  <td> {{item.nome }}</td>
+                  <td> {{item.nomeArquivo }}</td>
+                  <td> {{item.dataInclusao | date: 'dd/MM/yyy' }}</td>
+                  <td class="text-center">
+                    <span class="badge badge-pill badge-secondary" *ngIf="item.status === 1">Pendente</span>
+                    <span class="badge badge-pill badge-info" *ngIf="item.status === 2">Processando</span>
+                    <span class="badge badge-pill badge-primary" *ngIf="item.status === 3">Processado </span>
+                  </td>
+                </tr>
+              </tbody>
+
+            </table>
+            <div class="text-right">
+              <pagination-controls (pageChange)="pag = $event"
+                                   previousLabel="Anterior"
+                                   nextLabel="Próximo" *ngIf="setores?.length > 0"></pagination-controls>
+            </div>
+          </div>
+
+          <div class="card-body" *ngIf="setores?.length === 0">
+
+            <div class="text-center ">
+              <div class="d-flex justify-content-center">
+                <div class="p-5 bg-light text-center rounded-pill " style="max-width:250px">
+                  <i class="bg-light text-center rounded-pill fas fa-user-tie fa-4x"></i>
+                </div>
+              </div>
+
+
+              <p class="mb-1 text-black-50">Você ainda não possui arquivos de setores censitários carregados</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

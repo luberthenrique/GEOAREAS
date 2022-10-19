@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Excluir {{data.titulo}}</h4>
+  <button type="button" class="close p-0" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p><strong>Tem certeza que deseja excluir o/a {{data.titulo}} <span class="text-primary">'{{data.identificacao}}'</span>?</strong></p>
+
+  <p>
+    Todos os dados relacionados ao {{data.titulo}} serão removidos permanentemente.
+  </p>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" (click)="activeModal.dismiss()">Cancelar <span class="fas fa-ban ml-1"></span></button>
+  <button class="btn btn-danger" (click)="activeModal.close(data.id)">Excluir <span class="far fa-trash-alt ml-1"></span></button>
+</div>

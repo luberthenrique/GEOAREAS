@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: geolocalizacao
+      MYSQL_USER: geolocalizacaouser
+      MYSQL_PASSWORD: 12345
+      MYSQL_ROOT_PASSWORD: geolocalizacaopassword
+    restart: always
+  mongo:
+    image: mongo
+    restart: always
+  geolocalizacao.presentation:
+    image: geolocalizacaopresentation
+    build:
+      context: .
+      dockerfile: src/Geolocalizacao.Presentation/Dockerfile
+    depends_on:
+      - mysql
+      - mongo

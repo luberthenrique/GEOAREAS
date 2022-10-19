@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Pesquisar cliente</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="form-group row d-flex m-0">
+    <div class="flex-grow-1">
+      <button class="btn btn-default" [disabled]="!selecao" [class.disabled]="!selecao" (click)="confirmarSelecao()">Selecionar <i class="fas fa-check"></i></button>
+    </div>
+    <div class="col-6 m-0 p-0 d-flex">
+      <label class="mr-2 mt-2">Pesquisar:</label>
+      <input type="text" class="form-control" [formControl]="f.texto" placeholder="Nome ou telefone" />
+    </div>
+  </div>
+  <div class="form-group row mt-3">
+    <div class="col-12">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th style="width: 20px;"> # </th>
+            <th> Nome </th>
+            <th width="180"> CNPJ </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr [ngClass]="{'table-active': selecao?.id == cliente.id }"
+              (click)="selectRow(cliente)"
+              *ngFor="let cliente of clientes | paginate: { itemsPerPage: qtdPorPagina, currentPage: pag };let i = index">
+            <td>{{i + 1}}</td>
+            <td> {{cliente.nome }}</td>
+            <td class="text-center"> {{cliente.cpfCnpj | cpfCnpj}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+      <div class="text-right">
+        <pagination-controls (pageChange)="pag = $event"
+                             previousLabel="Anterior"
+                             nextLabel="Próximo" *ngIf="clientes?.length > 0"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

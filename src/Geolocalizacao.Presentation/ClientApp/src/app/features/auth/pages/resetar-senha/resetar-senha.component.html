@@ -1,0 +1,41 @@
+<div class="w-100 text-center d-flex" style="background-color: #e9ecef; height: 100vh;">
+  <form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <img width="250" src="href=../../assets/images/logo_planeta_racing_escura.png" alt="">
+    <app-alert></app-alert>
+    <div class="card">
+      <div class="card-body">
+        <h4>
+          Redefinir sua senha
+        </h4>
+        <div class="form-group mb-3">
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Email" formControlName="email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="submitted && f.email.errors" class="text-danger text-left">
+            <div *ngIf="f.email.errors.required">O email é obrigatório.</div>
+            <div *ngIf="f.email.errors.email">O email é inválido.</div>
+          </div>
+        </div>
+        <div class="form-group mb-4">
+          <div class="col">
+            <button type="submit" class="btn btn-primary btn-block" *ngIf="!loading" [disabled]="loadingFb">Redefinir senha</button>
+
+            <button class="btn btn-primary btn-block" type="button" disabled *ngIf="loading">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Aguarde...
+            </button>
+          </div>
+        </div>
+        <p class="mb-0">
+          <a routerLink="/" class="text-center">Voltar para o início</a>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+

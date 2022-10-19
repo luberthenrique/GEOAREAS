@@ -1,0 +1,11 @@
+::ng-deep main {
+  background-color: #f4f6f9;
+}
+.error-page {
+  max-width: 650px;
+}
+.error-page .headline {
+  float: left;
+  font-size: 100px;
+  font-weight: 300;
+}

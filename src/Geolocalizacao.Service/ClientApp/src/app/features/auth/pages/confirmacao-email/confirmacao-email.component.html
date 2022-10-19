@@ -1,0 +1,19 @@
+
+
+<div class="w-100 text-center d-flex" style="background-color: #e9ecef; height: 100vh;">
+  <div class="form-signin">
+    <img width="250px" src="href=../../assets/images/logo_planeta_racing_escura.png" alt="">
+    <app-alert></app-alert>
+    <div class="card pb-3" *ngIf="emailConfirmado === true">
+      <div class="card-body">
+        <h3>E-mail confirmado</h3>
+        <h5>Olá {{nome}}. Seu cadastro foi realizado com sucesso!</h5>
+        <h6 class="mt-4">Obrigado por se cadastrar no Planeta Racing! Agora você pode usar todos os nossos serviços disponíveis.</h6>
+
+        <a class="btn btn-primary mt-4" routerLink="/auth/login">Efetuar login</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+

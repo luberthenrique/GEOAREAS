@@ -1,0 +1,67 @@
+<nav id="sidebar" class="col-12 col-md-3 col-lg-3 col-xl-2 d-md-block navbar-dark bg-dark bd-sidebar collapse position-fixed" style="z-index:50">
+
+  <div class="sidebar-sticky">
+    <div class="w-100 bg-dark d-md-flex justify-content-center p-0 d-none border-bottom" style="top:0">
+      <a routerLink="/admin" class="navbar-brand">
+        <img width="100"
+             src="../../../assets/images/logo_planeta_racing_Clara.png"
+             alt="Logo"
+             class="brand-image img-circle elevation-3">
+      </a>
+    </div>
+    <ul class="sidebar list-unstyled components mt-3">
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/admin" class="">
+          <i class="fas fa-home"></i>
+          Painel administrativo
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="menu-open">
+        <a href="#menuCadastros" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" routerLinkActive="active">
+          <i class="nav-icon fa fa-plus-square"></i>
+          Cadastros
+        </a>
+        <ul class="collapse list-unstyled" id="menuCadastros" routerLinkActive="show">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isAllowed('cliente')">
+            <a routerLink="/cliente" class="">
+              <i class="nav-icon ml-2 fas fa-user-tie"></i>
+              Clientes
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isAllowed('setorescensitarios')">
+            <a routerLink="/setores-censitarios" class="">
+              <i class="nav-icon ml-2 fas fa-vector-square"></i>
+              Setores Censitários
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item" routerLinkActive="menu-open">
+        <a href="#menuConfiguracoes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" routerLinkActive="active">
+          <i class="fa fa-cogs"></i>
+          Configurações
+        </a>
+        <ul class="collapse list-unstyled" id="menuConfiguracoes" routerLinkActive="show">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isAllowed('usuario')">
+            <a routerLink="/usuario" class="">
+              <i class="nav-icon ml-2 fas fa-users"></i>
+              Usuários
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isAllowed('perfilusuario')">
+            <a routerLink="/perfilusuario" class="">
+              <i class="nav-icon ml-2 fas fa-users-cog"></i>
+              Perfis de usuários
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/usuario/profile" class="">
+              <i class="nav-icon ml-2 fas fa-user-circle"></i>
+              Minha conta
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

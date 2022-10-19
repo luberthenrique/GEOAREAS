@@ -1,0 +1,6 @@
+.fa-caret-up {
+  transition: all 0.3s ease;
+}
+.btn-nav-accordion.collapsed .fa-caret-up {
+  transform: rotate(180deg);
+}

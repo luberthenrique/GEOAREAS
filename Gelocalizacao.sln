@@ -1,0 +1,120 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{4BC1A299-19EB-4B10-83A9-D386772D522B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{B5A84AAE-67B5-4B62-8836-225A177EACF2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{3E4650D3-E63D-4854-B294-6B792BB53920}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{D121A45E-04A1-4EEC-BE9C-A5BB9A71550B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{33AB73A0-1732-4E3F-9582-C17D7F87F1B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Data", "5.1 - Data", "{0D04D69D-C6EC-4B12-8952-856448A34759}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - CrossCutting", "5.2 - CrossCutting", "{EAE261D8-CF73-4BF3-8B32-907F70C22334}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Presentation", "src\Geolocalizacao.Presentation\Geolocalizacao.Presentation.csproj", "{0AEF170B-103A-42E8-830E-2166C6B2054D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Application", "src\Geolocalizacao.Application\Geolocalizacao.Application.csproj", "{26A60412-6DC3-4C1E-9835-E10E84107D08}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Infra.Data", "src\Geolocalizacao.Infra.Data\Geolocalizacao.Infra.Data.csproj", "{91D3EECC-E7D1-4E37-BAE1-AFBF2CAA777A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Domain.Core", "src\Geolocalizacao.Domain.Core\Geolocalizacao.Domain.Core.csproj", "{A80ADBEC-608D-498A-9487-E72C5D7BB0C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Domain", "src\Geolocalizacao.Domain\Geolocalizacao.Domain.csproj", "{CEB9B567-31D9-4043-8199-7A839A37382D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Infra.CrossCutting.IoC", "src\Geolocalizacao.Infra.CrossCutting.IoC\Geolocalizacao.Infra.CrossCutting.IoC.csproj", "{2E583755-D154-4351-B443-292038707EB2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Infra.CrossCutting.Email", "src\Geolocalizacao.Infra.CrossCutting.Email\Geolocalizacao.Infra.CrossCutting.Email.csproj", "{0261544B-0CD0-4621-82D3-B42457589EA3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Infra.CrossCutting.Identity", "src\Geolocalizacao.Infra.CrossCutting.Identity\Geolocalizacao.Infra.CrossCutting.Identity.csproj", "{A319314F-F17A-4ED2-8422-BBF4D4A015CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Infra.CrossCutting.ViaCep", "src\Geolocalizacao.Infra.CrossCutting.ViaCep\Geolocalizacao.Infra.CrossCutting.ViaCep.csproj", "{36A5DE20-F567-43B3-9A3A-D48876348AB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocalizacao.Infra.CrossCutting.Bus", "src\Geolocalizacao.Infra.CrossCutting.Bus\Geolocalizacao.Infra.CrossCutting.Bus.csproj", "{2A8958F3-62A4-4F80-87BD-BC9A4FB16C2C}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FABEBD92-4121-4187-B874-642D0BF00074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocalizacao.Api", "src\Geolocalizacao.Api\Geolocalizacao.Api.csproj", "{3D1217A0-361D-4094-8853-B75120036708}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AEF170B-103A-42E8-830E-2166C6B2054D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AEF170B-103A-42E8-830E-2166C6B2054D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AEF170B-103A-42E8-830E-2166C6B2054D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AEF170B-103A-42E8-830E-2166C6B2054D}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{26A60412-6DC3-4C1E-9835-E10E84107D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A60412-6DC3-4C1E-9835-E10E84107D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A60412-6DC3-4C1E-9835-E10E84107D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A60412-6DC3-4C1E-9835-E10E84107D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91D3EECC-E7D1-4E37-BAE1-AFBF2CAA777A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91D3EECC-E7D1-4E37-BAE1-AFBF2CAA777A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91D3EECC-E7D1-4E37-BAE1-AFBF2CAA777A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91D3EECC-E7D1-4E37-BAE1-AFBF2CAA777A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80ADBEC-608D-498A-9487-E72C5D7BB0C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80ADBEC-608D-498A-9487-E72C5D7BB0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80ADBEC-608D-498A-9487-E72C5D7BB0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80ADBEC-608D-498A-9487-E72C5D7BB0C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB9B567-31D9-4043-8199-7A839A37382D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB9B567-31D9-4043-8199-7A839A37382D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB9B567-31D9-4043-8199-7A839A37382D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB9B567-31D9-4043-8199-7A839A37382D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E583755-D154-4351-B443-292038707EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E583755-D154-4351-B443-292038707EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E583755-D154-4351-B443-292038707EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E583755-D154-4351-B443-292038707EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0261544B-0CD0-4621-82D3-B42457589EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0261544B-0CD0-4621-82D3-B42457589EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0261544B-0CD0-4621-82D3-B42457589EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0261544B-0CD0-4621-82D3-B42457589EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A319314F-F17A-4ED2-8422-BBF4D4A015CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A319314F-F17A-4ED2-8422-BBF4D4A015CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A319314F-F17A-4ED2-8422-BBF4D4A015CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A319314F-F17A-4ED2-8422-BBF4D4A015CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A5DE20-F567-43B3-9A3A-D48876348AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A5DE20-F567-43B3-9A3A-D48876348AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A5DE20-F567-43B3-9A3A-D48876348AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A5DE20-F567-43B3-9A3A-D48876348AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A8958F3-62A4-4F80-87BD-BC9A4FB16C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A8958F3-62A4-4F80-87BD-BC9A4FB16C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A8958F3-62A4-4F80-87BD-BC9A4FB16C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A8958F3-62A4-4F80-87BD-BC9A4FB16C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FABEBD92-4121-4187-B874-642D0BF00074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FABEBD92-4121-4187-B874-642D0BF00074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FABEBD92-4121-4187-B874-642D0BF00074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FABEBD92-4121-4187-B874-642D0BF00074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1217A0-361D-4094-8853-B75120036708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1217A0-361D-4094-8853-B75120036708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1217A0-361D-4094-8853-B75120036708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1217A0-361D-4094-8853-B75120036708}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D04D69D-C6EC-4B12-8952-856448A34759} = {33AB73A0-1732-4E3F-9582-C17D7F87F1B7}
+		{EAE261D8-CF73-4BF3-8B32-907F70C22334} = {33AB73A0-1732-4E3F-9582-C17D7F87F1B7}
+		{0AEF170B-103A-42E8-830E-2166C6B2054D} = {4BC1A299-19EB-4B10-83A9-D386772D522B}
+		{26A60412-6DC3-4C1E-9835-E10E84107D08} = {3E4650D3-E63D-4854-B294-6B792BB53920}
+		{91D3EECC-E7D1-4E37-BAE1-AFBF2CAA777A} = {0D04D69D-C6EC-4B12-8952-856448A34759}
+		{A80ADBEC-608D-498A-9487-E72C5D7BB0C4} = {D121A45E-04A1-4EEC-BE9C-A5BB9A71550B}
+		{CEB9B567-31D9-4043-8199-7A839A37382D} = {D121A45E-04A1-4EEC-BE9C-A5BB9A71550B}
+		{2E583755-D154-4351-B443-292038707EB2} = {EAE261D8-CF73-4BF3-8B32-907F70C22334}
+		{0261544B-0CD0-4621-82D3-B42457589EA3} = {EAE261D8-CF73-4BF3-8B32-907F70C22334}
+		{A319314F-F17A-4ED2-8422-BBF4D4A015CD} = {EAE261D8-CF73-4BF3-8B32-907F70C22334}
+		{36A5DE20-F567-43B3-9A3A-D48876348AB9} = {EAE261D8-CF73-4BF3-8B32-907F70C22334}
+		{2A8958F3-62A4-4F80-87BD-BC9A4FB16C2C} = {EAE261D8-CF73-4BF3-8B32-907F70C22334}
+		{3D1217A0-361D-4094-8853-B75120036708} = {B5A84AAE-67B5-4B62-8836-225A177EACF2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4D5CD4C-2206-4A8B-A35D-C80A08AE2A17}
+	EndGlobalSection
+EndGlobal

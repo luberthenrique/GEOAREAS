@@ -1,0 +1,95 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-sm-12">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="../../">Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/cliente">Listar usuários</a></li>
+          <li class="breadcrumb-item active">Novo usuário</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <app-alert></app-alert>
+        <!-- Default box -->
+        <div class="card card-outline card-info">
+          <div class="card-header">
+            <h2>Novo usuário</h2>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                <app-section class="section text-info" [text]="'Dados'"></app-section>
+
+                <div class="col-12 col-md-7 col-lg-7 col-xl-6">
+                  <label>Nome</label>
+                  <input class="form-control" [class.is-invalid]="submitted && f.nome.hasError('required')" [formControl]="f.nome">
+                  <span *ngIf="f.nome.hasError('required')" class="error invalid-feedback">O nome é <strong>obrigatório</strong></span>
+                </div>
+
+                <div class="col-12 col-md-5 col-lg-5 col-xl-6">
+                  <label>E-mail</label>
+                  <input class="form-control" [class.is-invalid]="submitted && f.email.hasError('required')" [formControl]="f.email">
+                  <span *ngIf="f.email.hasError('required')" class="error invalid-feedback">O nome é <strong>obrigatório</strong></span>
+                  <span *ngIf="f.email.hasError('email')" class="error invalid-feedback">O email é <strong>inválido</strong></span>
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <app-section class="section text-info" [text]="'Permissões de acesso'"></app-section>
+
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                  <label>Gestor</label>
+                  <select class="form-control" [class.is-invalid]="submitted && f.idPerfil.hasError('required')" [formControl]="f.idUsuario">
+                    <option value="null" selected>Selecione</option>
+                    <option *ngFor="let item of usuarios" [value]="item.id">
+                      {{item.nome}}
+                    </option>
+                  </select>
+                  <span *ngIf="f.idUsuario.hasError('required')" class="error invalid-feedback">O gestor é <strong>obrigatório</strong></span>
+                </div>
+
+                <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3">
+                  <label>Perfil de usuário</label>
+                  <select class="form-control" [class.is-invalid]="submitted && f.idPerfil.hasError('required')" [formControl]="f.idPerfil">
+                    <option value="" selected>Selecione</option>
+                    <option *ngFor="let item of perfisUsuario" [value]="item.id">
+                      {{item.nome}}
+                    </option>
+                  </select>
+                  <span *ngIf="f.idPerfil.hasError('required')" class="error invalid-feedback">O perfil de usuário é <strong>obrigatório</strong></span>
+                </div>
+
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-3">
+                  <span></span>
+                  <div class="custom-control custom-switch mt-2">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1" [formControl]="f.habilitado">
+                    <label class="custom-control-label" for="customSwitch1">Ativo</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-12 text-right">
+                  <button type="submit" class="btn btn-primary"><span class="far fa-save"></span> Gravar</button>
+                  <a routerLink="/usuario" class="btn btn-default"><span class="fas fa-ban"></span> Cancelar</a>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

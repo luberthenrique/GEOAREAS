@@ -1,0 +1,48 @@
+<section class="content-header">
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-sm-12">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="../../">Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/cliente">Listar clientes</a></li>
+          <li class="breadcrumb-item active">Editar cliente</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <app-alert></app-alert>
+        <div class="card card-outline card-info">
+          <div class="card-header">
+            <h2>Editar cliente</h2>
+          </div>
+          <div class="card-body">           
+
+            <nav class="nav nav-pills flex-column flex-sm-row" id="pills-tab" role="tablist">
+              <a class="flex-sm-fill text-sm-center nav-link active" id="tab-dados" data-toggle="pill" href="#pills-dados" role="tab" aria-controls="pills-dados" aria-selected="true">Cadastro</a>
+              <a class="flex-sm-fill text-sm-center nav-link" id="tab-apis" data-toggle="pill" href="#pills-apis" role="tab" aria-controls="pills-apis" aria-selected="false">Gerenciamento de API</a>
+            </nav>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-dados" role="tabpanel" aria-labelledby="tab-dados">
+                <div class="mt-3 col-12">
+                  <app-formulario [editar]="true" (salvar)="save($event)"></app-formulario>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-apis" role="tabpanel" aria-labelledby="tab-apis">
+                <div class="mt-3 col-12">
+                  <app-gerenciamento-api></app-gerenciamento-api>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

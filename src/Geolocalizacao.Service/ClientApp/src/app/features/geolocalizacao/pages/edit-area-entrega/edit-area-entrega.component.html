@@ -1,0 +1,76 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-sm-12">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="../../">Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/cliente">Listar áreas de entrega</a></li>
+          <li class="breadcrumb-item active">Editar área de entrega</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <app-alert></app-alert>
+        <!-- Default box -->
+        <div class="card card-outline card-info">
+          <div class="card-header">
+            <h2>Editar área de entrega</h2>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                <app-section class="section text-info" [text]="'Dados'"></app-section>
+
+                <div class="col-12 col-md-7 col-lg-7 col-xl-6">
+                  <label>Nome</label>
+                  <input class="form-control" [class.is-invalid]="submitted && f.nome.hasError('required')" [formControl]="f.nome">
+                  <span *ngIf="f.nome.hasError('required')" class="error invalid-feedback">O nome é <strong>obrigatório</strong></span>
+                </div>
+
+                <div class="col-12 col-md-7 col-lg-7 col-xl-6">
+                  <label>Cor</label>
+                  <input class="form-control" [class.is-invalid]="submitted && f.cor.hasError('required')" [formControl]="f.cor">
+                  <span *ngIf="f.cor.hasError('required')" class="error invalid-feedback">A cor é <strong>obrigatória</strong></span>
+                </div>
+                <div class="col-12 col-md-7 col-lg-7 col-xl-6">
+                  <label>Valor da entrega (R$)</label>
+                  <input type="number" class="form-control" [class.is-invalid]="submitted && f.valor.hasError('required')" [formControl]="f.valor">
+                  <span *ngIf="f.valor.hasError('required')" class="error invalid-feedback">O valor da entrega é <strong>obrigatório</strong></span>
+                </div>
+                <div class="col-12 col-md-7 col-lg-7 col-xl-6">
+                  <label>Prazo estimado da entrega (Minutos)</label>
+                  <input type="number" class="form-control" [class.is-invalid]="submitted && f.tempo.hasError('required')" [formControl]="f.tempo">
+                  <span *ngIf="f.tempo.hasError('required')" class="error invalid-feedback">O tempo estimado da entrega é <strong>obrigatório</strong></span>
+                </div>
+              </div>
+              <div class="form-group row">
+                <app-section class="section text-info" [text]="'Áreas'"></app-section>
+
+                <div class="col-12 d-flex justify-content-center" style="">
+                  <div #map_canvas style="width: 100%;height:calc(100vh - 300px)"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-12 text-right">
+                  <button type="submit" class="btn btn-primary"><span class="far fa-save"></span> Gravar</button>
+                  <a routerLink="/area-entrega" class="btn btn-default"><span class="fas fa-ban"></span> Cancelar</a>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

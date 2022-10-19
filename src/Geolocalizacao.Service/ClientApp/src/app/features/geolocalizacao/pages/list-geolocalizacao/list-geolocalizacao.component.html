@@ -1,0 +1,67 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Listar áreas de entrega</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Listar áreas de entrega</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <app-alert></app-alert>
+        <!-- Default box -->
+        <div class="card card-outline card-info">
+          <div class="card-header">
+            <app-botoes-grid action="Area-Entrega" [selectedId]="selecao?.id" (deleteEvent)="confirmDelete()"></app-botoes-grid>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th style="width: 20px;"> # </th>
+                  <th> Nome </th>
+                  <th> Cor </th>
+                  <th> Valor </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr [ngClass]="{'table-active': selecao?.id == area.id }"
+                    (click)="selectRow(area)"
+                    *ngFor="let area of areasEntrega;let i = index">
+                  <td>{{i + 1}}</td>
+                  <td> {{area.nome}} </td>
+                  <td> {{area.cor }}</td>
+                  <td> {{ area.valor }}</td>
+                </tr>
+              </tbody>
+
+            </table>
+
+            <div class="form-group row">
+              <app-section class="section text-info" [text]="'Áreas'"></app-section>
+
+              <div class="col-12 d-flex justify-content-center" style="">
+                <div #map_canvas style="width: 100%;height:calc(100vh - 300px)"></div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </div>
+</section>

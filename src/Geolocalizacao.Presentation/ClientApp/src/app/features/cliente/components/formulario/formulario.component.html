@@ -1,0 +1,85 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group row">
+    <app-section class="section text-info" [text]="'Dados'"></app-section>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+      <label>Razão social</label>
+      <input class="form-control" [class.is-invalid]="(f.razaoSocial.touched || submitted) && !f.razaoSocial.valid" [formControl]="f.razaoSocial">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.razaoSocial" [label]="'razão social'"></app-error-msg>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <label>CNPJ</label>
+      <input class="form-control" mask="00.000.000/0000-00" [class.is-invalid]="(f.cnpj.touched || submitted) && f.cnpj.hasError('required')" [formControl]="f.cnpj">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.cnpj" [label]="'CNPJ'"></app-error-msg>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+      <label>Inscrição Municipal</label>
+      <input class="form-control" [class.is-invalid]="(f.inscricaoMunicipal.touched || submitted) && !f.inscricaoMunicipal.valid" [formControl]="f.inscricaoMunicipal">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.inscricaoMunicipal" [label]="'inscrição municipal'"></app-error-msg>
+    </div>
+  </div>
+  <div class="form-group row">
+    <app-section class="section text-info" [text]="'Endereço'"></app-section>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+      <label>CEP</label>
+      <input class="form-control" mask="00000-000" [class.is-invalid]="(f.cep.touched || submitted) && f.cep.hasError('required')" [formControl]="f.cep">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.cep" [label]="'cep'"></app-error-msg>
+    </div>
+    <div class="col-12 col-md-8 col-lg-6 col-xl-6">
+      <label>Logradouro</label>
+      <input class="form-control" [class.is-invalid]="(f.logradouro.touched || submitted) && f.logradouro.hasError('required')" [formControl]="f.logradouro">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.logradouro" [label]="'logradouro'"></app-error-msg>
+    </div>
+
+    <div class="col-4 col-md-4 col-lg-3 col-xl-3">
+      <label>Número</label>
+      <input class="form-control" [class.is-invalid]="(f.numero.touched || submitted) && f.numero.hasError('required')" [formControl]="f.numero">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.numero" [label]="'número'"></app-error-msg>
+    </div>
+    <div class="col-8 col-md-8 col-lg-6">
+      <label>Complemento</label>
+      <input class="form-control" [class.is-invalid]="(f.complemento.touched || submitted) && f.complemento.hasError('required')" [formControl]="f.complemento">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.complemento" [label]="'complemento'"></app-error-msg>
+    </div>
+    <div class="col-12 col-md-4 col-lg-6">
+      <label>Bairro</label>
+      <input class="form-control" [class.is-invalid]="(f.bairro.touched || submitted) && f.bairro.hasError('required')" [formControl]="f.bairro">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.bairro" [label]="'bairro'"></app-error-msg>
+    </div>
+
+    <div class="col-8 col-md-4 col-lg-6">
+      <label>Cidade</label>
+      <input class="form-control" [class.is-invalid]="(f.cidade.touched || submitted) && f.cidade.hasError('required')" [formControl]="f.cidade">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.cidade" [label]="'cidade'"></app-error-msg>
+    </div>
+    <div class="col-4 col-md-4 col-lg-3 col-xl-2">
+      <label>Estado</label>
+      <input class="form-control" [class.is-invalid]="(f.uf.touched || submitted) && f.uf.hasError('required')" [formControl]="f.uf">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.uf" [label]="'estado'"></app-error-msg>
+    </div>
+  </div>
+  <div class="form-group row">
+    <app-section class="section text-info" [text]="'Contato'"></app-section>
+    <div class="col-12 col-md-4 col-lg-3 col-xl-3">
+      <label>WhatsApp</label>
+      <input class="form-control" mask="(00) 0000-0000||(00) 0 0000-0000" [class.is-invalid]="(f.telefone1.touched || submitted) && f.telefone1.hasError('required')" [formControl]="f.telefone1">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.telefone1" [label]="'WhatsApp'"></app-error-msg>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 col-xl-3">
+      <label>Telefone</label>
+      <input class="form-control" mask="(00) 0000-0000||(00) 0 0000-0000" [class.is-invalid]="(f.telefone2.touched || submitted) && f.telefone2.hasError('required')" [formControl]="f.telefone2">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.telefone2" [label]="'telefone'"></app-error-msg>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 col-xl-6">
+      <label>E-mail</label>
+      <input type="email" class="form-control" [class.is-invalid]="(f.email.touched || submitted) && f.email.hasError('required')" [formControl]="f.email">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.email" [label]="'e-mail'"></app-error-msg>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-12 col-12 text-right">
+      <button type="submit" class="btn btn-primary"><span class="far fa-save"></span> Gravar</button>
+      <a routerLink="/cliente" class="btn btn-default"><span class="fas fa-ban"></span> Cancelar</a>
+    </div>
+
+  </div>
+</form>

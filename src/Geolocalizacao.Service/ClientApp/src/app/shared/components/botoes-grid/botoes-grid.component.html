@@ -1,0 +1,3 @@
+<button *ngIf="permiteAdicionar()" (click)="add()"  class="btn btn-default">Adicionar <span class="fa fa-plus"></span></button>
+<button *ngIf="permiteEditar()" [disabled]="!rowIsSelected()" (click)="edit()"  class="btn btn-default">Editar <span class="fa fa-edit"></span></button>
+<button *ngIf="permiteDeletar()" [disabled]="!rowIsSelected()" (click)="delete()"  class="btn btn-default">Excluir <span class="far fa-trash-alt"></span></button>

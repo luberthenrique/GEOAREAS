@@ -1,0 +1,62 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group row mt-2">
+
+    <label class="col-12 col-md-3">Nome da API:</label>
+    <div class="col-8 col-sm-6 col-md-6 col-lg-5">
+      <input class="form-control" [class.is-invalid]="(f.nome.touched || submitted) && f.nome.hasError('required')" [formControl]="f.nome">
+      <app-error-msg class="error invalid-feedback" [submitted]="submitted" [control]="f.nome" [label]="'nome da API'"></app-error-msg>
+    </div>
+    <button type="submit" class="btn btn-warning" style="max-height: 38px;">Criar API</button>
+  </div>
+</form>
+
+<div class="row">
+  <app-section class="section text-info" [text]="'Lista de APIs'"></app-section>
+</div>
+
+<div class="form-group row" *ngFor="let api of apis; let i = index">
+  <div class="col-12">
+    <div class="card w-100">
+      <div class="card-header d-flex align-items-center" [attr.id]="'heading-'+ i">
+        <div class="flex-grow-1 accordion-toggle collapsed">
+          <h5>
+            {{api.nome}}
+          </h5>
+        </div>
+        <div class="">
+          <button type="button" class="btn btn-outline-danger" (click)="deleteApi(api)">Excluir <i class="far fa-trash-alt"></i></button>
+        </div>
+        <a class="btn btn-link btn-nav-accordion collapsed ml-2" data-toggle="collapse" [attr.data-target]="'#collapse-' + i" [attr.aria-controls]="'collapse-' + i" aria-expanded="false" style=" margin-right: -10px;">
+          <i class="fa fa-caret-up text-dark"></i>
+        </a>
+      </div>
+      <div [attr.id]="'collapse-'+ i" class="collapse" aria-labelledby="heading">
+        <div class="card-body">
+          <div class="form-group row ml-0 mr-0">
+            <label class="col-2">API Key:</label>
+            <div class="col-10">
+              <input class="form-control" [value]="api.apiKey" readonly>
+            </div>
+          </div>
+          <div class="form-group row ml-0 mr-0">
+            <label class="col-2">Secret Key:</label>
+            <div class="col-10">
+              <input class="form-control" [value]="api.secretKey" readonly>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-footer bg-white" style="font-size: .8rem">
+          Cadastrado por <span class="font-weight-bold font-italic">{{api.usuarioInclusao.nome}}</span>, dia {{api.dataHoraInclusao | date: 'dd MMMM'}} ás {{api.dataHoraInclusao | date: 'HH:mm'}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group row">
+  <div class="col-12 col-12 text-right">
+    <a routerLink="/cliente" class="btn btn-default"><span class="fas fa-ban"></span> Cancelar</a>
+  </div>
+
+</div>
