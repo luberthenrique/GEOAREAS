@@ -8,11 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="appsettings.Homologacao.json" />
-    <_ContentIncludedByDefault Remove="appsettings.Producao.json" />
-  </ItemGroup>
-
-  <ItemGroup>
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.9" />
 	  <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.9" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
